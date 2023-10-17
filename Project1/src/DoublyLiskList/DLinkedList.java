@@ -23,6 +23,7 @@ public class DLinkedList {
         Node node = new Node();
         node.data = data;
         node.next = head;
+        node.previous = node;
         head = node;
     }
 
