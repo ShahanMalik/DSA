@@ -23,7 +23,7 @@ public class DLinkedList {
         Node node = new Node();
         node.data = data;
         node.next = head;
-        node.previous = node;
+        head.previous = node;
         head = node;
     }
 
@@ -44,20 +44,34 @@ public class DLinkedList {
         }
     }
 
+    // public void deleteAt(int index) {
+    // if (index == 0) {
+    // head = head.next;
+    // head.previous = null;
+    // } else {
+    // Node n = head;
+    // Node n1 = null;
+    // for (int i = 0; i < index - 1; i++) {
+    // n = n.next;
+    // }
+    // n1 = n.next;
+    // n.next = n1.next;
+    // n1.next.previous = n;
+    // n1 = null;
+    // }
+    // }
+
     public void deleteAt(int index) {
         if (index == 0) {
             head = head.next;
-            head.previous = null;
+            head.next.previous = null;
         } else {
-            Node n = head;
-            Node n1 = null;
-            for (int i = 0; i < index - 1; i++) {
-                n = n.next;
+            Node temp = head;
+            for (int a = 0; a < index - 1; a++) {
+                temp = temp.next;
             }
-            n1 = n.next;
-            n.next = n1.next;
-            n1.next.previous = n;
-            n1 = null;
+            temp.next = temp.next.next;
+            temp.next.previous = temp;
         }
     }
 
@@ -75,24 +89,32 @@ public class DLinkedList {
         head.previous = null;
     }
 
+    // public void reverse() {
+    // Node n = head;
+    // Node temp = null;
+    // while (n != null) {
+    // temp = n.previous;
+    // n.previous = n.next;
+    // n.next = temp;
+    // n = n.previous;
+    // }
+    // if (temp != null) {
+    // head = temp.previous;
+    // }
+    // }
+
     public void reverse() {
-        Node n = head;
-        Node temp = null;
-        while (n != null) {
-            temp = n.previous;
-            n.previous = n.next;
-            n.next = temp;
-            n = n.previous;
-        }
-        if (temp != null) {
-            head = temp.previous;
+        Node temp = tail;
+        while (temp != null) {
+            System.out.print(temp.data + "  ");
+            temp = temp.previous;
         }
     }
 
     public void show() {
         Node node = head;
         while (node != null) {
-            System.out.println(node.data);
+            System.out.print(node.data + "  ");
             node = node.next;
         }
     }
