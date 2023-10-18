@@ -44,23 +44,6 @@ public class DLinkedList {
         }
     }
 
-    // public void deleteAt(int index) {
-    // if (index == 0) {
-    // head = head.next;
-    // head.previous = null;
-    // } else {
-    // Node n = head;
-    // Node n1 = null;
-    // for (int i = 0; i < index - 1; i++) {
-    // n = n.next;
-    // }
-    // n1 = n.next;
-    // n.next = n1.next;
-    // n1.next.previous = n;
-    // n1 = null;
-    // }
-    // }
-
     public void deleteAt(int index) {
         if (index == 0) {
             head = head.next;
@@ -71,7 +54,7 @@ public class DLinkedList {
                 temp = temp.next;
             }
             temp.next = temp.next.next;
-            temp.next.previous = temp;
+            temp.next.previous = temp; // not use temp.next.next.next.previous = temp; because temp is updated above
         }
     }
 
@@ -88,20 +71,6 @@ public class DLinkedList {
         head = head.next;
         head.previous = null;
     }
-
-    // public void reverse() {
-    // Node n = head;
-    // Node temp = null;
-    // while (n != null) {
-    // temp = n.previous;
-    // n.previous = n.next;
-    // n.next = temp;
-    // n = n.previous;
-    // }
-    // if (temp != null) {
-    // head = temp.previous;
-    // }
-    // }
 
     public void reverse() {
         Node temp = tail;
