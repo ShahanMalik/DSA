@@ -1,4 +1,4 @@
-package Trees;
+package stack.UseLinklist;
 
 public class Node {
     int data;
