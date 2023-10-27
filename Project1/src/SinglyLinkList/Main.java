@@ -19,6 +19,7 @@ public class Main {
         System.out.println("delete  at last");
         list.deleteAtLast();
         list.show();
+
         System.out.println("find index");
         list.findIndex(1);
         System.out.println("reverse");
