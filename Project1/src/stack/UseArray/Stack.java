@@ -11,6 +11,7 @@ public class Stack {
                 throw new Exception("Stack overflow");
             } else {
                 stack[++top] = value;
+                // System.out.println(top++);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

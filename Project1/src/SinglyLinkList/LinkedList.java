@@ -49,7 +49,7 @@ public class LinkedList {
         node.data = value;
         Node n = tail;
         n.next = node;
-        node = tail;
+        tail = node;
     }
 
     public void deleteAt(int index) {
