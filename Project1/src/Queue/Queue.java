@@ -1,40 +1,67 @@
 package Queue;
 
 public class Queue {
-    int[] queue = new int[5];
-    int front;
-    int rear;
-    int top = -1;
+    // create a circular queue
+    private int[] queue;
+    private int front;
+    private int rear;
+    private int size;
+    private int count;
 
-    public void enQueue(int value) {
-        if (top >= 5) {
-            System.out.println("queue is full" + queue.length);
-        } else {
-            top++;
-            queue[top] = value;
-        }
+    public Queue(int size) {
+        this.size = size;
+        queue = new int[size];
+        front = 0;
+        rear = -1;
+        count = 0;
     }
 
-    public void deQueue() {
-        if (top <= 0) {
-            System.out.println("queue is empty" + queue.length);
-        } else {
-            front++;
-            for (int a = front; a <= top; a++) {
-                queue[a - 1] = queue[a];
-                System.out.println("deque value  " + queue[a - 1]);
-            }
-            top--;
-            queue[top + 1] = 0;
-            System.out.println("sdfjksfhjksdfhk" + top);
-
+    public void enqueue(int item) {
+        if (isFull()) {
+            System.out.println("Queue is full");
+            return;
         }
+        rear = (rear + 1) % size;
+        queue[rear] = item;
+        count++;
+    }
+
+    public int dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        int item = queue[front];
+        front = (front + 1) % size;
+        count--;
+        return item;
     }
 
     public void show() {
-        System.out.println("for each loop");
-        for (int fe : queue) {
-            System.out.println(fe);
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+            return;
         }
+        for (int i = 0; i < count; i++) {
+            System.out.print(queue[(front + i) % size] + " ");
+        }
+        System.out.println();
     }
+
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        return queue[front];
+    }
+
+    public boolean isEmpty() {
+        return count == 0;
+    }
+
+    public boolean isFull() {
+        return count == size;
+    }
+
 }
