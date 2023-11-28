@@ -1,23 +1,16 @@
-package Queue;
+package Queue.usingLiskedlist;
 
 public class Main {
     public static void main(String[] args) {
-        Queue queue = new Queue(5);
-        queue.enqueue(1);
-        queue.enqueue(2);
-        queue.enqueue(3);
-        queue.enqueue(4);
+        Queue queue = new Queue();
+
         queue.show();
         queue.dequeue();
         queue.dequeue();
         queue.dequeue();
         queue.dequeue();
         queue.dequeue();
-        queue.enqueue(5);
-        queue.enqueue(6);
-        queue.enqueue(7);
-        queue.enqueue(8);
-        queue.enqueue(9);
+
         queue.show();
         queue.dequeue();
         queue.dequeue();
