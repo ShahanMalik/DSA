@@ -1,4 +1,4 @@
-package Queue;
+package Queue.UsingArray;
 
 public class Queue {
     // create a circular queue
